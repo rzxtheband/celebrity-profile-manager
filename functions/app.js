@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const serverless = require('serverless-http');
 const sequelize = require('./config/db');
 const bodyParser = require('body-parser');
 require('./models/ModelRegistry');
@@ -41,4 +42,4 @@ app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
 
-module.exports = app;
+module.exports = serverless(app);
